@@ -56,7 +56,7 @@ export default function Refined() {
     } else {
       setRefinedText("No text found in session.");
     }
-  }, [level, summary]);
+  }, [level]);
 
   const playChunks = async () => {
     if (isPlaying) return;

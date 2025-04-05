@@ -55,9 +55,16 @@ export default function FileUploader({ onFileRead }: FileUploaderProps) {
   };
 
   return (
-    <div className="grid w-full max-w-sm items-center gap-4">
-      <Label htmlFor="file">Upload a file</Label>
-      <Input id="file" type="file" onChange={handleFileChange} />
+    <div className="grid w-full max-w-xl items-center gap-4">
+      <Label htmlFor="file" className="text-xl">
+        Upload a file
+      </Label>
+      <Input
+        id="file"
+        type="file"
+        onChange={handleFileChange}
+        className="font-semibold"
+      />
       <Button onClick={handleProcess} disabled={!selectedFile}>
         Save File
       </Button>
