@@ -26,8 +26,36 @@ export default function Refined() {
 
     if (savedText) {
       setRefinedText(savedText); // Set the refined text if found in sessionStorage
+
+      const fetchRefinedText = async () => {
+        try {
+          const res = await fetch("/api/ai-process", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              inputText: savedText,
+              readingLevel: "2nd grade", // or dynamically choose later
+            }),
+          });
+
+          const data = await res.json();
+
+          if (data.result) {
+            setRefinedText(data.result);
+          } else {
+            setRefinedText("There was a problem processing the text.");
+          }
+        } catch (error) {
+          console.error("Error calling AI API:", error);
+          setRefinedText("Error connecting to AI.");
+        }
+      };
+
+      fetchRefinedText();
     } else {
-      setRefinedText("No refined text available.");
+      setRefinedText("No text found in session.");
     }
   }, []);
 
