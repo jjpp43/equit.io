@@ -4,13 +4,10 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
-import * as pdfjsLib from "pdfjs-dist";
 
 type FileUploaderProps = {
   onFileRead?: (content: string | ArrayBuffer | null, file: File) => void;
 };
-
-pdfjsLib.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.js`;
 
 export default function FileUploader({ onFileRead }: FileUploaderProps) {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
@@ -25,18 +22,11 @@ export default function FileUploader({ onFileRead }: FileUploaderProps) {
   const handleProcess = async () => {
     if (!selectedFile) return;
 
-    const arrayBuffer = await selectedFile.arrayBuffer();
-    const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
-    let fullText = "";
+    const formData = new FormData();
+    formData.append("file", selectedFile);
+    console.log("📤 Sending file:", selectedFile);
 
-    for (let i = 1; i <= pdf.numPages; i++) {
-      const page = await pdf.getPage(i);
-      const content = await page.getTextContent();
-      const strings = content.items.map((item: any) => item.str);
-      fullText += strings.join(" ") + "\n";
-    }
-
-    onFileRead?.(fullText, selectedFile);
+    // fill in from here...
   };
 
   return (
