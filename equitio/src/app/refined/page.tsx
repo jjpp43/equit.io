@@ -65,7 +65,7 @@ export default function Refined() {
 
   return (
     <>
-      <div className="flex flex-col items-center h-screen max-w-screen p-4">
+      {/* <div className="flex flex-col items-center h-screen max-w-screen p-4">
         <div className="flex flex-row w-full h-full">
           <div className="w-1/5 h-full border-2"></div>
           <div className="w-3/5 border-2 flex flex-col p-4 gap-8">
@@ -81,8 +81,35 @@ export default function Refined() {
             <Button className="w-12 h-12" onClick={playChunks}>
               <Volume2 size={40} />
             </Button>
-            <div className="text-lg">{dummyText}</div>
+            <div className="overflow: auto">
+              <div className="text-lg">{dummyText}</div>
+            </div>
           </div>
+        </div>
+      </div> */}
+      <div className="h-screen grid grid-cols-3 gap-4 p-4">
+        {/* Left column - static */}
+        <div className="border-2 p-4">
+          <h2 className="font-bold text-xl mb-2">Adjustments</h2>
+          <p>Static content here</p>
+        </div>
+
+        {/* Middle column - scrollable */}
+        <div className="border-2 p-4 overflow-y-auto h-full">
+          <h2 className="font-bold text-xl mb-2">Refined Text</h2>
+          <Button className="w-12 h-12" onClick={togglePlayPause}>
+            {isPlaying ? <PauseCircle size={40} /> : <Volume2 size={40} />}
+          </Button>
+          <div className="space-y-4">{dummyText}</div>
+        </div>
+
+        {/* Right column - scrollable */}
+        <div className="border-2 p-4 overflow-y-auto h-full">
+          <h2 className="font-bold text-xl mb-2">Summary</h2>
+          <Button className="w-12 h-12" onClick={togglePlayPause}>
+            {isPlaying ? <PauseCircle size={40} /> : <Volume2 size={40} />}
+          </Button>
+          <div className="space-y-4">{dummyText}</div>
         </div>
       </div>
     </>
