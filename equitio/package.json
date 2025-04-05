@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@radix-ui/react-label": "^2.1.2",
+    "@radix-ui/react-radio-group": "^1.2.3",
     "@radix-ui/react-slot": "^1.1.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -30,6 +31,7 @@
     "@types/pdf-parse": "^1.1.5",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "mini-css-extract-plugin": "^2.9.2",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

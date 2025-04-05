@@ -2,22 +2,14 @@
 import { useState, useEffect } from "react";
 import { Volume2, PauseCircle } from "lucide-react";
 import { Button } from "../../components/ui/button";
-
-const dummyText = `Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book. It has
-              survived not only five centuries, but also the leap into
-              electronic typesetting, remaining essentially unchanged. It was
-              popularised in the 1960s with the release of Letraset sheets
-              containing Lorem Ipsum passages, and more recently with desktop
-              publishing software like Aldus PageMaker including versions of
-              Lorem Ipsum.`;
+import { Label } from "@/components/ui/label";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 export default function Refined() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
   const [refinedText, setRefinedText] = useState<string>("");
+  const [difficulty, setDifficulty] = useState<string>("");
 
   // This effect will be used to set the data passed from the previous page (e.g. from FileUploader)
   // This effect will be used to get the data from sessionStorage
@@ -33,7 +25,7 @@ export default function Refined() {
 
   const playChunks = async () => {
     if (isPlaying) return;
-    const res = await fetch(`/api/tts?text=${encodeURIComponent(dummyText)}`);
+    const res = await fetch(`/api/tts?text=${encodeURIComponent(refinedText)}`);
     const data = await res.json();
 
     if (!data.base64Chunks || !Array.isArray(data.base64Chunks)) {
@@ -76,45 +68,54 @@ export default function Refined() {
     }
   };
 
+  // Handle difficulty change
+  const handleDifficultyChange = (value: string) => {
+    setDifficulty(value); // Set the selected difficulty value
+  };
+
   return (
     <>
-      {/* <div className="flex flex-col items-center h-screen max-w-screen p-4">
-        <div className="flex flex-row w-full h-full">
-          <div className="w-1/5 h-full border-2"></div>
-          <div className="w-3/5 border-2 flex flex-col p-4 gap-8">
-            <div className="text-2xl font-bold">Converted</div>
-            <Button className="w-12 h-12" onClick={togglePlayPause}>
-              {isPlaying ? <PauseCircle size={40} /> : <Volume2 size={40} />}
-            </Button>
-            <div className="text-lg">{dummyText}</div>
-          </div>
-          <div className="w-1/2 border-2 flex flex-col p-4 gap-8">
-            {" "}
-            <div className="text-2xl font-bold">Summary</div>
-            <Button className="w-12 h-12" onClick={playChunks}>
-              <Volume2 size={40} />
-            </Button>
-            <div className="overflow: auto">
-              <div className="text-lg">{dummyText}</div>
-            </div>
-          </div>
-        </div>
-      </div> */}
-      <div className="h-screen grid grid-cols-3 gap-4 p-4">
+      <div className="h-screen grid grid-cols-[1.5fr_3fr_3fr] gap-4 p-4">
         {/* Left column - static */}
         <div className="border-2 p-4">
-          <h2 className="font-bold text-xl mb-2">Adjustments</h2>
-          <p>Static content here</p>
+          <h2 className="font-bold text-3xl mb-2 pt-2 pb-12">Adjustments</h2>
+          <h3 className="pb-4 font-semibold text-xl">Level of difficulty</h3>
+          <RadioGroup
+            defaultValue="option-one"
+            value={difficulty}
+            onValueChange={handleDifficultyChange}
+          >
+            <div className="flex items-center space-x-2">
+              <RadioGroupItem value="option-one" id="option-one" />
+              <Label htmlFor="option-one" className="text-lg">
+                Mild
+              </Label>
+            </div>
+            <div className="flex items-center space-x-2">
+              <RadioGroupItem value="option-two" id="option-two" />
+              <Label htmlFor="option-two" className="text-lg">
+                Moderate
+              </Label>
+            </div>
+            <div className="flex items-center space-x-2">
+              <RadioGroupItem value="option-three" id="option-three" />
+              <Label htmlFor="option-three" className="text-lg">
+                {" "}
+                Severe
+              </Label>
+            </div>
+          </RadioGroup>
         </div>
 
         {/* Middle column - scrollable */}
         <div className="border-2 p-4 overflow-y-auto h-full">
-          <h2 className="font-bold text-xl mb-2">
-            Refined Text{" "}
+          <div className="flex flex-row gap-4 pt-2 pb-6">
+            {" "}
+            <h2 className="font-bold text-3xl mb-2">Refined Text </h2>
             <Button className="w-8 h-8" onClick={togglePlayPause}>
               {isPlaying ? <PauseCircle size={40} /> : <Volume2 size={40} />}
             </Button>
-          </h2>
+          </div>
 
           <div className="space-y-4">
             {refinedText || "Loading refined text..."}
@@ -123,12 +124,12 @@ export default function Refined() {
 
         {/* Right column - scrollable */}
         <div className="border-2 p-4 overflow-y-auto h-full">
-          <h2 className="font-bold text-xl mb-2">
-            Summary{" "}
+          <div className="flex flex-row gap-4 pt-2 pb-6">
+            <h2 className="font-bold text-3xl mb-2">Summary </h2>
             <Button className="w-8 h-8" onClick={togglePlayPause}>
               {isPlaying ? <PauseCircle size={40} /> : <Volume2 size={40} />}
             </Button>
-          </h2>
+          </div>
 
           <div className="space-y-4">
             {refinedText || "Loading refined text..."}
