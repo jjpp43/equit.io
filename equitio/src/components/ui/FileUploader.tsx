@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
+import pdfParse from "pdf-parse";
 
 type FileUploaderProps = {
   onFileRead?: (content: string | ArrayBuffer | null, file: File) => void;
@@ -11,6 +12,7 @@ type FileUploaderProps = {
 
 export default function FileUploader({ onFileRead }: FileUploaderProps) {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [pdfText, setPdfText] = useState<string>("");
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -24,9 +26,29 @@ export default function FileUploader({ onFileRead }: FileUploaderProps) {
 
     const formData = new FormData();
     formData.append("file", selectedFile);
-    console.log("📤 Sending file:", selectedFile);
 
-    // fill in from here...
+    try {
+      // Send the file to the server API for parsing
+      const response = await fetch("/api/parse", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await response.json();
+
+      if (data.text) {
+        setPdfText(data.text); // Display the extracted text
+        console.log("Extracted Text: ", data.text);
+
+        if (onFileRead) {
+          onFileRead(data.text, selectedFile);
+        }
+      } else {
+        console.error("Error parsing PDF:", data.error);
+      }
+    } catch (err) {
+      console.error("Error uploading PDF:", err);
+    }
   };
 
   return (
