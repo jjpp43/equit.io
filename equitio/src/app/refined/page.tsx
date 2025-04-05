@@ -9,7 +9,7 @@ export default function Refined() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
   const [refinedText, setRefinedText] = useState<string>("");
-  const [difficulty, setDifficulty] = useState<string>("");
+  const [Level, setLevel] = useState<string>("");
 
   // This effect will be used to set the data passed from the previous page (e.g. from FileUploader)
   // This effect will be used to get the data from sessionStorage
@@ -96,9 +96,9 @@ export default function Refined() {
     }
   };
 
-  // Handle difficulty change
-  const handleDifficultyChange = (value: string) => {
-    setDifficulty(value); // Set the selected difficulty value
+  // Handle Level change
+  const handleLevelChange = (value: string) => {
+    setLevel(value); // Set the selected Level value
   };
 
   return (
@@ -107,11 +107,11 @@ export default function Refined() {
         {/* Left column - static */}
         <div className="border-2 p-4">
           <h2 className="font-bold text-3xl mb-2 pt-2 pb-12">Adjustments</h2>
-          <h3 className="pb-4 font-semibold text-xl">Level of difficulty</h3>
+          <h3 className="pb-4 font-semibold text-xl">Level of Level</h3>
           <RadioGroup
             defaultValue="option-one"
-            value={difficulty}
-            onValueChange={handleDifficultyChange}
+            value={Level}
+            onValueChange={handleLevelChange}
           >
             <div className="flex items-center space-x-2">
               <RadioGroupItem value="option-one" id="option-one" />

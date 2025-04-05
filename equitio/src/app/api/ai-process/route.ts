@@ -13,10 +13,10 @@ export async function POST(req: Request) {
       "You are an assistant that helps summarize and optionally rephrase text for people with dyslexia. Always be clear and friendly. Output ONLY valid JSON with two fields: summary and rephrased.";
 
     let userPrompt = `Here is some text:\n\n"${inputText}"\n\nPlease return a JSON object like this:
-{
-  "summary": "...",
-  "rephrased": "..."
-}\n\nSummarize it concisely.`;
+                      {
+                        "summary": "...",
+                        "rephrased": "..."
+                      }\n\nSummarize it concisely.`;
 
     // Add rephrasing instructions only if not "default"
     if (readingLevel !== "default") {
