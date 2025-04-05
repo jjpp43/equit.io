@@ -25,7 +25,6 @@ export default function upload() {
 
           <CardContent className="flex justify-center items-center">
             {/* Calls File Uploader */}
-            <FileUploader />
             <FileUploader onFileRead={undefined} />
           </CardContent>
 
@@ -33,7 +32,7 @@ export default function upload() {
 
           <CardFooter className="flex justify-center">
             <Button asChild>
-              <Link href="/home">Let's Go!</Link>
+              <Link href="/refined">Let's Go!</Link>
             </Button>
           </CardFooter>
         </Card>
