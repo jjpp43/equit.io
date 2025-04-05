@@ -3,6 +3,8 @@
 import { Card } from "@/components/ui/card";
 import Image from "next/image";
 import { CircleChevronRight } from "lucide-react";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
@@ -42,7 +44,9 @@ export default function Home() {
                 Convert text into dyslexia-friendly font
               </div>
               <div>
-                <CircleChevronRight />
+                <Button asChild>
+                  <Link href="/upload">Go</Link>
+                </Button>
               </div>
             </div>
           </Card>
