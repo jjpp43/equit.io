@@ -108,6 +108,11 @@ export default function Refined() {
     setLevel(value); // Set the selected Level value
   };
 
+  const formattedRephrased = (rephrased || defaultText || "")
+    .replace(/\.\s*/g, ".\n") // Add newline after periods
+    .split("\n") // Split by newline
+    .map((line, index) => <p key={index}>{line.trim()}</p>);
+
   return (
     <>
       <div className="h-screen grid grid-cols-[1.5fr_3fr_3fr] gap-4 p-4">
@@ -159,7 +164,7 @@ export default function Refined() {
           </div>
 
           <div className="space-y-4 leading-10 tracking-widest">
-            {rephrased || defaultText}
+            {formattedRephrased || defaultText}
           </div>
         </div>
 
