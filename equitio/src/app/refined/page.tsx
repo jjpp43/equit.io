@@ -96,19 +96,25 @@ export default function Refined() {
 
         {/* Middle column - scrollable */}
         <div className="border-2 p-4 overflow-y-auto h-full">
-          <h2 className="font-bold text-xl mb-2">Refined Text</h2>
-          <Button className="w-12 h-12" onClick={togglePlayPause}>
-            {isPlaying ? <PauseCircle size={40} /> : <Volume2 size={40} />}
-          </Button>
+          <h2 className="font-bold text-xl mb-2">
+            Refined Text{" "}
+            <Button className="w-8 h-8" onClick={togglePlayPause}>
+              {isPlaying ? <PauseCircle size={40} /> : <Volume2 size={40} />}
+            </Button>
+          </h2>
+
           <div className="space-y-4">{dummyText}</div>
         </div>
 
         {/* Right column - scrollable */}
         <div className="border-2 p-4 overflow-y-auto h-full">
-          <h2 className="font-bold text-xl mb-2">Summary</h2>
-          <Button className="w-12 h-12" onClick={togglePlayPause}>
-            {isPlaying ? <PauseCircle size={40} /> : <Volume2 size={40} />}
-          </Button>
+          <h2 className="font-bold text-xl mb-2">
+            Summary{" "}
+            <Button className="w-8 h-8" onClick={togglePlayPause}>
+              {isPlaying ? <PauseCircle size={40} /> : <Volume2 size={40} />}
+            </Button>
+          </h2>
+
           <div className="space-y-4">{dummyText}</div>
         </div>
       </div>
