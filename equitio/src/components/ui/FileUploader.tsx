@@ -40,6 +40,9 @@ export default function FileUploader({ onFileRead }: FileUploaderProps) {
         setPdfText(data.text); // Display the extracted text
         console.log("Extracted Text: ", data.text);
 
+        // Store pdfText in sessionStorage
+        sessionStorage.setItem("pdfText", data.text);
+
         if (onFileRead) {
           onFileRead(data.text, selectedFile);
         }

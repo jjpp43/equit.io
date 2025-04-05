@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Volume2, PauseCircle } from "lucide-react";
 import { Button } from "../../components/ui/button";
 
@@ -17,6 +17,19 @@ const dummyText = `Lorem Ipsum is simply dummy text of the printing and typesett
 export default function Refined() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
+  const [refinedText, setRefinedText] = useState<string>("");
+
+  // This effect will be used to set the data passed from the previous page (e.g. from FileUploader)
+  // This effect will be used to get the data from sessionStorage
+  useEffect(() => {
+    const savedText = sessionStorage.getItem("pdfText");
+
+    if (savedText) {
+      setRefinedText(savedText); // Set the refined text if found in sessionStorage
+    } else {
+      setRefinedText("No refined text available.");
+    }
+  }, []);
 
   const playChunks = async () => {
     if (isPlaying) return;
@@ -103,7 +116,9 @@ export default function Refined() {
             </Button>
           </h2>
 
-          <div className="space-y-4">{dummyText}</div>
+          <div className="space-y-4">
+            {refinedText || "Loading refined text..."}
+          </div>
         </div>
 
         {/* Right column - scrollable */}
@@ -115,7 +130,9 @@ export default function Refined() {
             </Button>
           </h2>
 
-          <div className="space-y-4">{dummyText}</div>
+          <div className="space-y-4">
+            {refinedText || "Loading refined text..."}
+          </div>
         </div>
       </div>
     </>
