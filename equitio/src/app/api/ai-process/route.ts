@@ -12,7 +12,10 @@ export async function POST(req: Request) {
 
     // Prepare the base system and user prompt
     const baseSystemPrompt =
-      "You are an assistant that helps summarize and optionally rephrase text for people with dyslexia. Always be clear and friendly. Output ONLY valid JSON with two fields: summary and rephrased.";
+      `You are an assistant that helps summarize and rephrase text for people 
+      with dyslexia. Always be clear and friendly. 
+      Output ONLY valid JSON with two fields: summary and rephrased. 
+      For the rephrased version, add newline characters after the end of a sentence.`;
 
     let userPrompt = `Here is some text:\n\n"${inputText}"\n\nPlease return a JSON object like this:
                       {

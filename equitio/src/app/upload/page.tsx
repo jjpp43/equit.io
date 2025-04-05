@@ -16,8 +16,8 @@ export default function upload() {
   return (
     <>
       <div className="flex justify-center items-center h-screen ">
-        <Card className="w-[650px]">
-          <CardHeader className="text-center">
+        <Card className="w-[650px] text-[#1D0066]">
+          <CardHeader className="text-center ">
             <CardTitle>Upload File</CardTitle>
             <CardDescription>We'll handle the rest!</CardDescription>
           </CardHeader>

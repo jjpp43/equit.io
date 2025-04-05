@@ -35,7 +35,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${dyslexiaFont.className} antialiased`}>
+      <body
+        className={`${dyslexiaFont.className} antialiased bg-[#FFF7EF] text-[#1D0066]`}
+      >
         {children}
       </body>
     </html>
