@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 const dyslexiaFont = localFont({
   src: [
     {
-      path: "../public/fonts/OpenDyslexic-Regular.woff2", // Use the correct path relative to /public
+      path: "../../public/fonts/OpenDyslexic-Regular.woff2", // Use the correct path relative to /public
       weight: "normal", // optional, specify the weight if applicable
       style: "normal", // optional, specify the style
     },
