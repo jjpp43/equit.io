@@ -26,6 +26,7 @@ export default function upload() {
           <CardContent className="flex justify-center items-center">
             {/* Calls File Uploader */}
             <FileUploader />
+            <FileUploader onFileRead={undefined} />
           </CardContent>
 
           <CardContent></CardContent>
