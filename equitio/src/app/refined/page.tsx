@@ -9,6 +9,8 @@ export default function Refined() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
   const [refinedText, setRefinedText] = useState<string>("");
+  const [summary, setSummary] = useState<string>("");
+  const [rephrased, setRephrased] = useState<string>("");
   const [difficulty, setDifficulty] = useState<string>("");
 
   // This effect will be used to set the data passed from the previous page (e.g. from FileUploader)
@@ -28,17 +30,14 @@ export default function Refined() {
             },
             body: JSON.stringify({
               inputText: savedText,
-              readingLevel: "2nd grade", // or dynamically choose later
+              readingLevel: "default", // or dynamically choose later
             }),
           });
 
           const data = await res.json();
 
-          if (data.result) {
-            setRefinedText(data.result);
-          } else {
-            setRefinedText("There was a problem processing the text.");
-          }
+          if (data.summary !== undefined) setSummary(data.summary);
+          if (data.rephrased !== undefined) setRephrased(data.rephrased);
         } catch (error) {
           console.error("Error calling AI API:", error);
           setRefinedText("Error connecting to AI.");
@@ -146,7 +145,7 @@ export default function Refined() {
           </div>
 
           <div className="space-y-4">
-            {refinedText || "Loading refined text..."}
+            {rephrased || "Loading refined text..."}
           </div>
         </div>
 
@@ -160,7 +159,7 @@ export default function Refined() {
           </div>
 
           <div className="space-y-4">
-            {refinedText || "Loading refined text..."}
+            {summary || "Loading refined text..."}
           </div>
         </div>
       </div>
