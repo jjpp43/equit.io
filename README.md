@@ -1,4 +1,4 @@
-# Learn with Ease : Dyslexia-Friendly Tool
+# Learn with Ease : Dyslexia-Friendly Reading Tool
 <br>
 
 ## Inspiration
