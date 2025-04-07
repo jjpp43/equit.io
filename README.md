@@ -1,4 +1,6 @@
 # Learn with Ease : Dyslexia-Friendly Reading Tool
+Won 2nd place in Code4Cause Hackathon
+![result](equitio/public/Screenshot 2025-04-07 at 12.02.34.png)
 <br>
 
 ## Inspiration
