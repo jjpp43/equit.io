@@ -1,6 +1,5 @@
 # Learn with Ease : Dyslexia-Friendly Tool
 <br>
-<br>
 
 ## Inspiration
 
@@ -24,8 +23,7 @@ Equit.IO is an web app that converts regular text into a dyslexia-friendly forma
 
 ### The main step forward would be improving the **User Experience**:
 
-- We plan to implement functionality in which users can create an account with EquitIO. This would allow for memory retention of the model, which would be huge for the project.
-  -- Users would be able to **revisit** past documents, allowing them to **repeatedly** and **efficiently** interpret class assignments and articles.
+- We plan to implement functionality in which users can create an account with EquitIO. This would allow for memory retention of the model, which would be huge for the project. Users would be able to **revisit** past documents, allowing them to **repeatedly** and **efficiently** interpret class assignments and articles.
 - People with dyslexia often use **color-guided strips** for reading support. We also plan to implement a **highlighting** feature, which will make text even more legible and accessible for users with dyslexia.
 
 ## How we built it
