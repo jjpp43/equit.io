@@ -1,5 +1,7 @@
 # Learn with Ease : Dyslexia-Friendly Tool
 
+
+
 ## Inspiration
 
 Struggling to read can have long-term consequences. According to [Yale Center of Dyslexia & Creativity](https://dyslexia.yale.edu/dyslexia/dyslexia-faq/), dyslexia affects **20%** of the population and accounts for the majority of learning disabilities. An estimated **62%** of students with reading difficulties drop out of high school.
