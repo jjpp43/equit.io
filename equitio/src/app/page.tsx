@@ -29,7 +29,7 @@ export default function Home() {
         </div>
         {/* START BUTTON */}
         <div className="">
-          <Card className="w-80 flex flex-col items-center py-4 px-4 text-[#1D0066]">
+          <Card className="w-80 flex flex-col items-center py-4 px-4 text-[#020402]">
             <Image
               className="rounded-lg"
               src="/card.png"
