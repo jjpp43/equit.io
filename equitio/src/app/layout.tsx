@@ -3,6 +3,10 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import localFont from "next/font/local";
 import { Analytics } from "@vercel/analytics/react";
+import { Sidebar } from "lucide-react";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/app-sidebar";
+import { useState } from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -39,8 +43,13 @@ export default function RootLayout({
       <body
         className={`${dyslexiaFont.className} antialiased bg-[#FFF7EF] text-[#1D0066]`}
       >
-        {children}
-        <Analytics />
+        {" "}
+        <SidebarProvider>
+          <AppSidebar />
+          <SidebarTrigger />
+          {children}
+          <Analytics />
+        </SidebarProvider>
       </body>
     </html>
   );

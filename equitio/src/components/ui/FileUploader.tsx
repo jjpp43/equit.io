@@ -56,9 +56,6 @@ export default function FileUploader({ onFileRead }: FileUploaderProps) {
 
   return (
     <div className="grid w-full max-w-xl items-center gap-4">
-      <Label htmlFor="file" className="text-xl">
-        Upload a file
-      </Label>
       <Input
         id="file"
         type="file"

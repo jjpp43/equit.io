@@ -15,9 +15,9 @@ import Link from "next/link";
 export default function upload() {
   return (
     <>
-      <div className="flex justify-center items-center h-screen">
+      <div className="flex justify-center items-center w-full h-screen">
         <Card className="w-2/3 h-2/3 border-2 bg-[#FFFAEF] text-[#1D0066]">
-          <CardHeader className="text-center ">
+          <CardHeader className="text-start ">
             <CardTitle className="text-4xl pb-8">Upload File</CardTitle>
             <CardDescription className="text-xl">
               We'll handle the rest!

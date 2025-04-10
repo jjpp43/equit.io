@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 export default function Home() {
   return (
     <>
-      <div className="flex flex-col items-center h-screen max-w-screen p-4">
+      <div className="flex flex-col items-center h-screen w-screen p-4">
         {/* TITLE FOR LANDING PAGE */}
         <div className="flex flex-col items-center gap-16 py-16">
           <h1 className="flex flex-col text-6xl font-bold gap-4">

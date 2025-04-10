@@ -118,12 +118,8 @@ export default function Refined() {
       <div className="h-screen grid grid-cols-[1.5fr_3fr_3fr] gap-4 p-4">
         {/* Left column - static */}
         <div className="border-2 p-4">
-          <h2 className="font-bold text-3xl mb-2 pt-2 pb-12 tracking-widest">
-            Adjustments
-          </h2>
-          <h3 className="pb-4 font-semibold text-xl tracking-widest">
-            Difficulty
-          </h3>
+          <h2 className="font-bold text-3xl mb-2 pt-2 pb-12">Adjustments</h2>
+          <h3 className="pb-4 font-bold text-xl">Difficulty</h3>
           <RadioGroup
             defaultValue="option-one"
             value={level}
@@ -131,19 +127,19 @@ export default function Refined() {
           >
             <div className="flex items-center space-x-2">
               <RadioGroupItem value="mild" id="mild" />
-              <Label htmlFor="mild" className="text-lg">
+              <Label htmlFor="mild" className="text-lg font-bold">
                 Mild
               </Label>
             </div>
             <div className="flex items-center space-x-2">
               <RadioGroupItem value="moderate" id="moderate" />
-              <Label htmlFor="moderate" className="text-lg">
+              <Label htmlFor="moderate" className="text-lg font-bold">
                 Moderate
               </Label>
             </div>
             <div className="flex items-center space-x-2">
               <RadioGroupItem value="severe" id="severe" />
-              <Label htmlFor="severe" className="text-lg">
+              <Label htmlFor="severe" className="text-lg font-bold">
                 {" "}
                 Severe
               </Label>
@@ -155,15 +151,13 @@ export default function Refined() {
         <div className="border-2 p-4 overflow-y-auto h-full">
           <div className="flex flex-row gap-4 pt-2 pb-6">
             {" "}
-            <h2 className="font-bold text-3xl mb-2 tracking-widest">
-              Refined Text{" "}
-            </h2>
+            <h2 className="font-bold text-4xl mb-2 ">Refined Text </h2>
             <Button className="w-8 h-8" onClick={togglePlayPause}>
               {isPlaying ? <PauseCircle size={40} /> : <Volume2 size={40} />}
             </Button>
           </div>
 
-          <div className="space-y-4 leading-10 tracking-widest">
+          <div className="space-y-4 leading-10 text-xl font-bold">
             {formattedRephrased || defaultText}
           </div>
         </div>
@@ -171,15 +165,13 @@ export default function Refined() {
         {/* Right column - scrollable */}
         <div className="border-2 p-4 overflow-y-auto h-full">
           <div className="flex flex-row gap-4 pt-2 pb-6">
-            <h2 className="font-bold text-3xl mb-2 tracking-widest">
-              Summary{" "}
-            </h2>
+            <h2 className="font-bold text-4xl mb-2 ">Summary </h2>
             <Button className="w-8 h-8" onClick={togglePlayPause}>
               {isPlaying ? <PauseCircle size={40} /> : <Volume2 size={40} />}
             </Button>
           </div>
 
-          <div className="space-y-4 leading-10 tracking-widest">
+          <div className="space-y-4 leading-10 text-xl font-bold">
             {summary || "Loading refined text..."}
           </div>
         </div>
