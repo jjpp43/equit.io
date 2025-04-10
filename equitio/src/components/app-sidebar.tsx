@@ -23,21 +23,26 @@ const atkinsonHyperlegible = Atkinson_Hyperlegible({
   subsets: ["latin"],
   weight: ["400", "700"],
 });
-const dyslexiaFont = localFont({
+const openDyslexia = localFont({
   src: "../../public/fonts/OpenDyslexic-Regular.woff2",
+});
+
+const verdana = localFont({
+  src: "../../public/fonts/Verdana-Bold.ttf",
 });
 
 export function AppSidebar() {
   const [font, setFont] = useState("");
   const [spacing, setSpacing] = useState(2);
-  const [backgroundColor, setBackgroundColor] = useState("#FFF7EF");
-  const [textColor, setTextColor] = useState("#1D0066");
+  const [backgroundColor, setBackgroundColor] = useState("#FFF3CE");
+  const [textColor, setTextColor] = useState("#020402");
 
   const fonts = [
     { label: "Sans", value: geistSans.className },
     { label: "Mono", value: geistMono.className },
-    { label: "Dyslexia", value: dyslexiaFont.className },
+    { label: "Dyslexia", value: openDyslexia.className },
     { label: "Atkinson", value: atkinsonHyperlegible.className },
+    { label: "Verdana", value: verdana.className },
   ];
 
   // Control Background Color & Text Color
@@ -56,7 +61,8 @@ export function AppSidebar() {
       geistSans.className,
       geistMono.className,
       atkinsonHyperlegible.className,
-      dyslexiaFont.className
+      openDyslexia.className,
+      verdana.className
     );
 
     if (font) {
