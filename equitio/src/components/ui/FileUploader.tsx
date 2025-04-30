@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 import pdfParse from "pdf-parse";
 
 type FileUploaderProps = {
@@ -62,8 +63,8 @@ export default function FileUploader({ onFileRead }: FileUploaderProps) {
         onChange={handleFileChange}
         className="font-semibold"
       />
-      <Button onClick={handleProcess} disabled={!selectedFile}>
-        Save File
+      <Button onClick={handleProcess} disabled={!selectedFile} asChild>
+        <Link href="/refined">Let's Go!</Link>
       </Button>
     </div>
   );

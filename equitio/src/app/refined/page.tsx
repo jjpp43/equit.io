@@ -172,7 +172,7 @@ export default function Refined() {
           </div>
 
           <div className="space-y-4 leading-10 text-xl font-bold">
-            {summary || "Loading refined text..."}
+            {summary || "Loading summary... just a second!"}
           </div>
         </div>
       </div>

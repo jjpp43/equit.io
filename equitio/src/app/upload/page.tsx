@@ -32,11 +32,7 @@ export default function upload() {
 
           <CardContent></CardContent>
 
-          <CardFooter className="flex justify-center">
-            <Button asChild>
-              <Link href="/refined">Let's Go!</Link>
-            </Button>
-          </CardFooter>
+          <CardFooter className="flex justify-center"></CardFooter>
         </Card>
       </div>
     </>
